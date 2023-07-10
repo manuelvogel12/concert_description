@@ -1,3 +1,52 @@
+# INSTALL MODIFIED concert_description
+## BUILD AND RUN THE DOCKER CONTAINER
+```
+git clone git@github.com:manuelvogel12/concert_description.git
+cd concert_description
+./docker/build-docker.bash --no-cache 
+./docker/run-docker.bash
+```
+
+INSIDE DOCKER: 
+### INSTALL SAFE_RL
+```
+cd ~/concert_ws/src/concert_description/safe_rl_manipulators
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+# cd ~/concert_ws/src/concert_description/safe_rl_manipulators/src/catkin_ws
+# pip3 install -r requirements.txt --upgrade  RELEVANT?
+# export ROBOT_RL_SIM_ROOT=~/concert_ws/src/concert_description/safe_rl_manipulators/src/catkin_ws
+sudo apt-get install python3-catkin-tools -y
+cd ~/concert_ws/
+catkin init
+catkin config --install
+catkin build custom_robot_msgs
+source devel/setup.bash
+```
+### INSTALL SARA-SHIELD
+#### install eigen
+```
+cd
+wget https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.zip
+unzip eigen-3.4.0.zip
+rm eigen-3.4.0.zip
+cd eigen-3.4.0
+mkdir build && cd build
+cmake ..
+sudo make install -j4
+cd ../../concert_ws
+export EIGEN3_INCLUDE_DIR="/usr/local/include/eigen3/eigen-3.4.0"
+sudo apt-get install libgtest-dev
+```
+#### build sara-shield
+```
+cd src/concert_description/sara-shield/safety_shield/
+mkdir build && cd build
+cmake ..
+sudo make -j 4
+```
+
+
 # concert_description
 ROS package containing modular's simulation scripts and launch files
 
