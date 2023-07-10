@@ -1,6 +1,6 @@
 [submodule "concert_resources"]
 	path = concert_resources
 	url = https://github.com/ADVRHumanoids/concert_resources.git
-[submodule "sara-shild"]
+[submodule "sara-shield"]
 	path = sara-shield
 	url = https://github.com/manuelvogel12/sara-shield.git
