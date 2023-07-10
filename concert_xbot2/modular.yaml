@@ -22,7 +22,8 @@ xbotcore_device_configs:
 xbotcore_threads:
   rt_main: { sched: fifo, prio: 60, period: 0.001}
   nrt_main: { sched: other, prio: 0, period: 0.005 }
-  
+  rt_250: { sched: fifo, prio: 50, period: 0.004 }
+
 # define plugins to be loaded
 xbotcore_plugins:
   # this plugin is shipped with xbot2, and it generates the
@@ -31,6 +32,7 @@ xbotcore_plugins:
   # inside a thread with `other` priority
   ros_io: { thread: nrt_main, type: ros_io }
   ros_ctrl: { thread: nrt_main, type: ros_control }
+  testnode: { thread: rt_main, type: testnode }
 
   # a simple homing module
   homing:
