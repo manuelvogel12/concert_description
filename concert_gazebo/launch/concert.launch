@@ -38,7 +38,8 @@
 
 
     <!-- from where the simulation enviornment will be loaded -->
-    <arg name="world_name" default="$(find concert_gazebo)/world/empty_world.sdf"/>
+    <!-- arg name="world_name" default="$(find concert_gazebo)/world/empty_world.sdf"/-->
+    <arg name="world_name" default="$(find concert_gazebo)/world/human_in_world.sdf"/>
 
 
     <include file="$(find concert_gazebo)/launch/modular.launch" pass_all_args="true"/>
