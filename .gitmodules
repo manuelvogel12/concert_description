@@ -4,3 +4,6 @@
 [submodule "sara-shield"]
 	path = sara-shield
 	url = https://github.com/manuelvogel12/sara-shield.git
+[submodule "safe_rl_manipulators"]
+	path = safe_rl_manipulators
+	url = https://github.com/JakobThumm/safe_rl_manipulators.git
