@@ -46,6 +46,20 @@ cmake ..
 sudo make -j 4
 ```
 
+# Problems:
+- Some paths are still hardcoded and have to be adjusted, when not using docker:
+    - In sara_shield/safety_shield/src/testnode.cc the paths for the config files
+    - In sara_shield/safety_shield/CMakeList.txt the include dir for ros packages (currently set to home/user/concert_ws/install/include)
+- Urdf to config script has problems when joining two joints. The temporary fix works for the current setup, but might not work for others
+  
+
+&nbsp;
+#
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 # concert_description
 ROS package containing modular's simulation scripts and launch files
