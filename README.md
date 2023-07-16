@@ -13,9 +13,6 @@ INSIDE DOCKER:
 cd ~/concert_ws/src/concert_description/safe_rl_manipulators
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
-# cd ~/concert_ws/src/concert_description/safe_rl_manipulators/src/catkin_ws
-# pip3 install -r requirements.txt --upgrade  RELEVANT?
-# export ROBOT_RL_SIM_ROOT=~/concert_ws/src/concert_description/safe_rl_manipulators/src/catkin_ws
 sudo apt-get install python3-catkin-tools -y
 cd ~/concert_ws/
 catkin init
@@ -35,7 +32,7 @@ mkdir build && cd build
 cmake ..
 sudo make install -j4
 cd ../../concert_ws
-export EIGEN3_INCLUDE_DIR="/usr/local/include/eigen3/eigen-3.4.0"
+export EIGEN3_INCLUDE_DIR="/home/user/eigen-3.4.0"
 sudo apt-get install libgtest-dev
 ```
 #### build sara-shield
@@ -43,7 +40,7 @@ sudo apt-get install libgtest-dev
 cd src/concert_description/sara-shield/safety_shield/
 mkdir build && cd build
 cmake ..
-sudo make -j 4
+sudo make install -j4
 ```
 
 # Problems:
@@ -51,6 +48,29 @@ sudo make -j 4
     - In sara_shield/safety_shield/src/testnode.cc the paths for the config files
     - In sara_shield/safety_shield/CMakeList.txt the include dir for ros packages (currently set to home/user/concert_ws/install/include)
 - Urdf to config script has problems when joining two joints. The temporary fix works for the current setup, but might not work for others
+
+
+
+
+# Run Safety-shield with Xbot2
+Start Ros with
+```
+roscore
+```
+Run the concert gazebo project with
+```
+cd ~/concert_ws
+source devel/setup.bash
+source setup.bash
+mon launch concert_gazebo concert.launch
+```
+**After** Gazebo runs, start Xbot2-Gui with
+```
+xbot2-gui
+```
+This should open a large window with status "Running" in the top left corner. If it opens a small window with the status "Inactive" instead, close and rerun the command above.
+
+**Open Rviz** for visualization (with the command ```rviz```) and **start the xbot plugin** in the xbot2 gui. The visualization topics of sara-shield are named ```/human_joint_marker_array``` and ```/robot_joint_marker_array``` and can be visualized by adding them in rviz.
   
 
 &nbsp;
