@@ -73,6 +73,17 @@ This should open a large window with status "Running" in the top left corner. If
 **Open Rviz** for visualization (with the command ```rviz```) and **start the xbot plugin** in the xbot2 gui. The visualization topics of sara-shield are named ```/human_joint_marker_array``` and ```/robot_joint_marker_array``` and can be visualized by adding them in rviz.
   
 
+## Send goal position:
+```
+rostopic pub /goal_joint_pos std_msgs/Float32MultiArray "layout:
+  dim:
+  - label: ''
+    size: 0
+    stride: 0
+  data_offset: 0
+data: [0.0, 0.0, 0.0, 0.0, 0.0,0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+```
+
 &nbsp;
 #
 &nbsp;

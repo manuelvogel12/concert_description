@@ -9,7 +9,7 @@
         <gravity>0 0 -9.81</gravity>
 
         <include>
-            <uri>/home/user/concert_ws/src/safe_rl_manipulators/src/catkin_ws/src/obstacles/models/human_work</uri>
+            <uri>/home/user/concert_ws/src/concert_description/safe_rl_manipulators/src/catkin_ws/src/obstacles/models/human_work</uri>
         </include>
 
         <model name="ground_plane">
